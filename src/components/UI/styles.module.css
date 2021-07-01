@@ -1,0 +1,135 @@
+.root {
+  height: auto;
+  width: calc(100% - 2 * var(--gutter));
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-top: 18px;
+  line-height: 36px;
+}
+.panels {
+  /*width: calc(100% - 2 * var(--gutter));*/
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0 var(--gutter);
+  gap: 0 var(--gutter);
+  margin: var(--gutter) 0;
+  height: auto;
+}
+.panel {
+  grid-column: span 1;
+  vertical-align: baseline;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+  height: auto;
+  border-radius: 12px;
+  background-color: rgba(245, 244, 252, 0.05);
+}
+.panelTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 26px;
+  margin-bottom: 21px;
+}
+.panelInput {
+  height: 40px;
+  border-radius: 44px;
+  width: calc(100% - 36px);
+  margin-bottom: 16px;
+  border: 2px solid rgba(245, 244, 252, 0.25);
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0 18px;
+  color: #f5f4fc;
+  transition: all ease-in 0.2s;
+}
+.panelInput:disabled {
+  cursor: not-allowed;
+  border-color: rgba(245, 244, 252, 0.15);
+  color: rgba(245, 244, 252, 0.5);
+}
+.panelInput:not(.panelInputInvalid):not(:disabled):hover {
+  border-color: rgba(245, 244, 252, 0.45);
+}
+.panelInput:not(.panelInputInvalid):not(:disabled):focus {
+  border-color: rgba(245, 244, 252, 0.55);
+}
+.panelButton:first-child {
+  margin-top: 24px;
+}
+.panelInputInvalid {
+  border-color: #dc4242;
+}
+.panelInputStatus {
+  color: red;
+  font-size: 11px;
+  line-height: 13px;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+.panelInputStatus::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  height: 12px;
+  width: 12px;
+  background: url(https://play.rainway.com/extra/info-alert.svg);
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transform: translateY(1px);
+}
+.panelButton {
+  height: 43px;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  overflow: hidden;
+  border: solid 2px rgba(109, 158, 228, 0.8);
+  border-radius: 43px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  transition: all ease-in 0.2s;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: rgba(245, 244, 252, 0.9);
+  transform-origin: center center;
+}
+.panelButton:disabled {
+  color: rgba(245, 244, 252, 0.75);
+  cursor: not-allowed;
+  border-color: rgba(109, 158, 228, 0.6);
+}
+.panelButton:not(:disabled):hover {
+  border-color: #4282dc;
+  color: white;
+  box-shadow: 0 0 25px rgba(66, 130, 220, 0.5);
+  transform: scale(1.03);
+}
+.panelStatusIndicatorGreen {
+  color: rgba(37, 200, 94, 0.75) !important;
+}
+.panelStatusIndicatorRed {
+  color: rgba(220, 66, 66, 0.75) !important;
+}
+.panelStatusIndicatorYellow {
+  color: rgba(220, 215, 66, 0.75) !important;
+}

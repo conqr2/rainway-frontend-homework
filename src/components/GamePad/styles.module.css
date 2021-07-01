@@ -1,0 +1,94 @@
+.root {
+  width: calc(100% - 3 * var(--gutter));
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(245, 244, 252, 0.05);
+  border-radius: 12px;
+  align-items: center;
+  margin-bottom: var(--gutter);
+  padding: calc(var(--gutter) / 2);
+}
+.controllerInactive {
+  opacity: 0.1;
+}
+.controller {
+  width: 750px;
+  height: 540px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in;
+}
+.controllerSkin {
+  top: 0;
+  left: 0;
+  background-image: url("../../img/controller_body.png");
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+}
+.controllerBody {
+  top: 0;
+  left: 0;
+  background-image: url("https://cdn.shopify.com/s/files/1/0259/1735/products/xbox_one_s_controller_template_2048x.jpg?v=1569998496");
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  z-index: 0;
+  border-radius: 16px;
+}
+.controllerInteractive {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+.button {
+  position: absolute;
+  height: 50px;
+  border-radius: 100%;
+  width: 50px;
+  background: #2c2d29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 26px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.buttonActive {
+  background: #787878;
+  box-shadow: 0 0 36px rgba(66, 130, 220, 0.5);
+}
+.thumbstick {
+  position: absolute;
+  height: 56px;
+  border-radius: 100%;
+  width: 56px;
+  background: #757575;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 16ms;
+}
+.thumbstick > span {
+  height: 20px;
+  width: 20px;
+  background: white;
+  border-radius: 100%;
+}

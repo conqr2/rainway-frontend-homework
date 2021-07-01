@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// eslint-disable-next-line
+import styles from "./App.module.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import useWS from "./components/useWS";
+import { useState } from "react";
+
+import UI from "./components/UI";
+import GamePad from "./components/GamePad";
+
+const Hook = (_) => {
+  const [currentURL, setCurrentURLInternal] = useState(undefined);
+  const {
+    ready: connected,
+    message: currentMessage,
+    error: connectionError,
+  } = useWS(
+    currentURL /* message => !!message.thumbsticks && !!message.buttons*/
   );
-}
 
-export default App;
+  return (
+    <>
+      <UI
+        setCurrentURL={(url) => setCurrentURLInternal(url)}
+        connected={connected}
+        message={currentMessage}
+        connectionError={connectionError}
+      />
+      <GamePad message={currentMessage} />
+    </>
+  );
+};
+
+export default Hook;
